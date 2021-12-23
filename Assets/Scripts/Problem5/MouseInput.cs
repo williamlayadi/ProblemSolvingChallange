@@ -22,6 +22,7 @@ public class MouseInput : MonoBehaviour
             desiredPos = worldPosition;
             
         }
+        //Debug.Log(worldPosition);
         transform.position = Vector3.MoveTowards(transform.position, desiredPos, speed * Time.deltaTime);
     }
 }
