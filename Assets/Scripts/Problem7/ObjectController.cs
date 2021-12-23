@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {
     public ScoreTextController _ScoreTextController;
+    public AudioClip hitClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,9 @@ public class ObjectController : MonoBehaviour
         spriteRenderer.enabled = false;
         var boxCollider = gameObject.GetComponent<BoxCollider2D>();
         boxCollider.enabled = false;
+        //hit music
+        gameObject.GetComponent<AudioSource>().PlayOneShot(hitClip);
+        //respawning
         StartCoroutine(startRespawning());
     }
     private IEnumerator startRespawning()
